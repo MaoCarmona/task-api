@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api')->except(['index', 'show']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:api')->except(['index', 'show']);
+    // }
     public function index(Request $request)
     {
         $query = Task::query();
@@ -68,7 +68,6 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
         $task->delete();
-
         return response()->json(null, 204);
     }
 }
